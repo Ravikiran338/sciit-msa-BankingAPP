@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-service-deployment
+  labels:
+    app: poc-banking-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: account-service
+
+  template:
+    metadata:
+      name: account-service
+      labels:
+        app: account-service
+    spec:
+      containers:
+      - name: account-container
+        image: ravi338/msa-banking-aws:account-19
+        imagePullPolicy: Always
+
+      imagePullSecrets:
+          - name: myregistrykey

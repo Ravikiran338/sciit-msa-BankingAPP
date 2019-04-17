@@ -1,0 +1,15 @@
+appVersion: v1
+kind: Pod
+metadata:
+  name: eureka-service
+  lables:
+    app: eureka-service
+
+spec:
+  Containers:
+    - name: eureka-container
+      image: ravi338/msa-banking-aws:eureka-22
+      imagePullPolicy: Always
+
+  imagePullSecrets:
+        - name: myregistrykey

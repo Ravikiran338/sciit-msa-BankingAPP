@@ -1,0 +1,15 @@
+appVersion: v1
+kind: Pod
+metadata:
+  name: auth-service
+  lables:
+    app: auth-service
+
+spec:
+  Containers:
+    - name: auth-container
+      image: ravi338/msa-banking-aws:auth-16
+      imagePullPolicy: Always
+
+  imagePullSecrets:
+        - name: myregistrykey

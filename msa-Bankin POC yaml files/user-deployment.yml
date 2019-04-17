@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-deployment
+  labels:
+    app: poc-banking-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+
+  template:
+    metadata:
+      name: user-service
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-container
+        image: ravi338/msa-banking-aws:user-19
+        imagePullPolicy: Always
+
+      imagePullSecrets:
+          - name: myregistrykey

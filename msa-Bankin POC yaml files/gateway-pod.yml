@@ -1,0 +1,15 @@
+appVersion: v1
+kind: Pod
+metadata:
+  name: gateway-service
+  lables:
+    app: gateway-service
+
+spec:
+  Containers:
+    - name: gateway-container
+      image: ravi338/msa-banking-aws:gateway-40
+      imagePullPolicy: Always
+
+  imagePullSecrets:
+        - name: myregistrykey

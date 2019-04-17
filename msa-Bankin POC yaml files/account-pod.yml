@@ -1,0 +1,15 @@
+appVersion: v1
+kind: Pod
+metadata:
+  name: account-service
+  lables:
+    app: account-service
+
+spec:
+  Containers:
+    - name: account-container
+      image: ravi338/msa-banking-aws:account-19
+      imagePullPolicy: Always
+
+  imagePullSecrets:
+        - name: myregistrykey

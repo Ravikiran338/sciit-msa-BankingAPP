@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-service-deployment
+  labels:
+    app: poc-banking-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eureka-service
+
+  template:
+    metadata:
+      name: eureka-service
+      labels:
+        app: eureka-service
+    spec:
+      containers:
+      - name: eureka-container
+        image: ravi338/msa-banking-aws:eureka-22
+        

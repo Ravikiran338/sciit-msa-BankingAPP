@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-service-deployment
+  labels:
+    app: poc-banking-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway-service
+
+  template:
+    metadata:
+      name: gateway-service
+      labels:
+        app: gateway-service
+    spec:
+      containers:
+      - name: gateway-container
+        image: ravi338/msa-banking-aws:gateway-41
+        imagePullPolicy: Always
+
+      imagePullSecrets:
+          - name: myregistrykey
